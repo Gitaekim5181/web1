@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title></title>
+</head>
+<article>
+
+</article>
+<body>
+        <input type="button" value="fetch" onclick="
+        // fetch('html').then(function(response){
+        //   response.text().then(function(text){
+        //     alert(text);
+        //     document.querySelector('article').innerHTML=text;
+        //   })
+        // });
+        //Asynchronous
+        // function callbackme(){
+        //   console.log('response end')
+        // }밑에 내용과 같다
+        // callbackme=function(){
+        //   console.log('response end')
+        // }
+        fetch('html').then(function(response){
+          console.log(response.status);
+          if(response.status =='404'){
+            alert('Not Found');
+          }else{
+            alert('OK Found');
+          }
+        });
+        console.log(1);
+        console.log(2);
+      ">
+</body>
+</html>
