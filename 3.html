@@ -1,57 +1,8 @@
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
-<script>
-function LinkssetColor(color){
-	var alist = document.querySelectorAll('a');
-		var i=0;
-		while(i<alist.length){
-			alist[i].style.color=color;
-			i=i+1;
-		}
-}
+<script src="colors.js"></script>
 
-function BodysetColor(color){
-	document.querySelector('body').style.color=color;
-
-}
-function Backgroundcolor(color){
-	document.querySelector('body').style.backgroundColor=color;
-}
-function nightDayHandler(self){
-var target = document.querySelector('body');
-	if(	self.value==='night'){
-		//target.style.backgroundColor='black'
-		//target.style.color='white';
-		Backgroundcolor('black');
-		BodysetColor('white');
-		self.value ='day';
-		// var alist = document.querySelectorAll('a');
-		// var i=0;
-		// while(i<alist.length){
-		// 	alist[i].style.color='powderblue';
-		// 	i=i+1;
-		// }
-		LinkssetColor('powderblue');
-	}else{
-		//target.style.backgroundColor='white'
-		//target.style.color='black';
-		Backgroundcolor('white');
-		BodysetColor('black');
-		self.value ='night';
-
-		// var alist = document.querySelectorAll('a');
-		// var i=0;
-		// while(i<alist.length){
-		// 	alist[i].style.color='red';
-		// 	i=i+1;
-		// }
-		LinkssetColor('red');
-	}
-}
-</script>
-<!-- this input에 있는 this와 다름 매개 변수가 필요 함 그걸 self로 지정
- -->
 <head>
 <title>WEB1 - JavaScript</title>
 <style>
@@ -66,17 +17,7 @@ var target = document.querySelector('body');
 		color: blue;
 	}
 </style>
-<!-- . clss id #
-id에 영향을 받았다. 클래스라는 것과 아이디 의미
-클래스는 그룹핑 한다 아이디라는건 한가지를 식별 한다는 거
-반 클래스다. 반을 그룹핑 아이디라는건 예로 학번이다. 학번은
-중복 되어서는 안된다. 그룹핑하고 싶은건 같은 이름에 클래스로
-id는 식별하는 것 클래스는 그룹핑 하는거
-클래스가 포괄적임 id는 정확하게 타켓팅 하는것
-span태그는 태그를 쓰는 모든 것들에 영향을 준다.
-id 선택자가 우선순위임 그다음 클래스 선택자
-그다음이 태그
--->
+
 </head>
 <link rel="stylesheet" href="style.css">
 <body>
@@ -84,52 +25,10 @@ id 선택자가 우선순위임 그다음 클래스 선택자
 <h1><a href="index.html">    WEB</a></h1>
 <div id="grid">
 		<div id="lia">
-<!-- <input type="button" value="night" onclick="
-document.querySelector('body').style.backgroundColor='blue'
-document.querySelector('body').style.color='white';
-">
-<input type="button" value="day" onclick="
-document.querySelector('body').style.backgroundColor='white'
-document.querySelector('body').style.color='black';
-"> if를 활용해서 하나의 버튼으로 활용 가능 -->
-<!-- <input id="night_day" type="button" value="night" onclick="
-if(document.querySelector('#night_day').value==='night'){
-	document.querySelector('body').style.backgroundColor='blue'
-	document.querySelector('body').style.color='white';
-	document.querySelector('#night_day').value ='day';
-}else{
-	document.querySelector('body').style.backgroundColor='white'
-	document.querySelector('body').style.color='black';
-	document.querySelector('#night_day').value ='night';
-}
-"> document.querySelector('#night_day')를 this로 할 수 있음
- id를 사용안 해도 됨 중복을 제거 해야 함-->
+
 
 <input type="button" value="night" onclick="
-var target = document.querySelector('body');
 nightDayHandler(this);
-// if(	this.value==='night'){
-// 	target.style.backgroundColor='black'
-// 	target.style.color='white';
-// 	this.value ='day';
-// 	var alist = document.querySelectorAll('a');
-// 	var i=0;
-// 	while(i<alist.length){
-// 		alist[i].style.color='powderblue';
-// 		i=i+1;
-// 	}
-// }else{
-// 	target.style.backgroundColor='white'
-// 	target.style.color='black';
-// 	this.value ='night';
-
-// 	var alist = document.querySelectorAll('a');
-// 	var i=0;
-// 	while(i<alist.length){
-// 		alist[i].style.color='red';
-// 		i=i+1;
-// 	}
-// }
 ">
 
 <ol>
