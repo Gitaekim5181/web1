@@ -4,23 +4,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
 </script>
 <script src="colors.js"></script>
+<script src="fetch-master/fetch.js">
+</script>
 <head>
 <title>WEB1 - WEB</title>
 </head>
 <link rel="stylesheet" href="style.css">
 <body>
 
-<h1><a href="index.html">    WEB</a></h1>
+  <h1><a href="#welcome">    WEB</a></h1>
 <div id="grid">
 		<div id="lia">
 				<input type="button" value="night" onclick="
 				nightDayHandler(this);
 				">
-<ol>
-	<li><a onclick="fetchPage('html')">   HTML</a></li>
-    <li><a onclick="fetchPage('css')">   CSS</a></li>
-    <li><a  onclick=" fetchPage('JavaScript')
-	  ">    JavaScript</a></li>
+<ol id="nav1">
+
 </ol>
 
 <ul>
@@ -41,8 +40,29 @@ function fetchPage(name){
             //alert(text);
             document.querySelector('article').innerHTML=text;
           })
-		});
-	}
+    });
+}
+if(location.hash){
+      fetchPage(location.hash.substring(2));
+ }else{
+    fetchPage('welcome');
+}
+ 
+     fetch('list').then(function(response){
+    response.text().then(function(text){
+      var items = text.split(',');
+      var i = 0;
+      var tags = '';
+      while(i<items.length){
+        var item = items[i];
+        item = item.trim();
+        var tag = '<li><a href="#!'+item+'" onclick="fetchPage(\''+item+'\')">'+item+'</a></li>';
+        tags = tags + tag;
+        i = i + 1;
+      }
+      document.querySelector('#nav1').innerHTML = tags;
+    })
+  });
 </script>
 </div>
 </div>
